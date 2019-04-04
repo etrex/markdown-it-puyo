@@ -1,0 +1,25 @@
+{
+  "name": "markdown-it-puyo",
+  "version": "1.0.0",
+  "description": "Puyo Puyo plugin for markdown-it markdown parser.",
+  "keywords": [
+    "markdown-it-plugin",
+    "markdown-it",
+    "markdown",
+    "puyo"
+  ],
+  "homepage": "https://github.com/etrex/markdown-it-puyo",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/etrex/markdown-it-puyo"
+  },
+  "bugs": {
+    "url": "https://github.com/etrex/markdown-it-puyo/issues"
+  },
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "Etrex Kuo"
+}
