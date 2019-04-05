@@ -69,7 +69,7 @@ function puyo_renderer(tokens, idx) {
     for(var i = 0 ; i < lines.length ; i++){
       for(var j = 0 ; j < 6 ; j ++){
         if(keys[char][i][j]){
-          output.push('<span class="puyo-' + char + '-container"></span>');
+          output.push('<span class="puyo-' + char + '"></span>');
         }else{
           output.push('<span class="puyo-empty"></span>');
         }
@@ -82,7 +82,7 @@ function puyo_renderer(tokens, idx) {
   }
   output.push('</div>');
 
-  return output.join("\n");
+  return output.join("");
 };
 
 module.exports = function puyo_plugin(md) {
