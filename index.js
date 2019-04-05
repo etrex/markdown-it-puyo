@@ -26,7 +26,7 @@ function puyo_block_ruler(state, startLine, endLine, silent) {
   state.line = line_of_block_end + 1;
 
   token         = state.push('puyo', '', 0);
-  token.content = state.getLines(startLine + 1, line_of_block_end + 1, 0, true);
+  token.content = state.getLines(startLine + 1, line_of_block_end, 0, false);
   token.map     = [ startLine, state.line ];
 
   return true;
@@ -44,8 +44,9 @@ function puyo_renderer(tokens, idx) {
   var content = tokens[idx].content;
   var lines = content.split("\n");
 
-  // remote the last lines
-  lines.pop();
+  while(lines[lines.length-1] === '' || lines[lines.length-1] === '}'){
+    lines.pop();
+  }
 
   var keys = {};
   for(var i = 0 ; i < lines.length ; i++){
@@ -54,7 +55,6 @@ function puyo_renderer(tokens, idx) {
       if(char === ' '){
         continue;
       }
-
       if(keys[char] === undefined){
         keys[char] = get_empty_array(lines.length);
       }
@@ -82,7 +82,7 @@ function puyo_renderer(tokens, idx) {
   }
   output.push('</div>');
 
-  return output.join("");
+  return output.join("\n");
 };
 
 module.exports = function puyo_plugin(md) {
